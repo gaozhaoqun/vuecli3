@@ -24,7 +24,7 @@ export default {
     data() {
         return {
             msgFahter: "Welcome to Vue-cli3",
-            title: "    ",
+            title: "",
             sonToFather: ""
         };
     },
