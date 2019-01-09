@@ -1,3 +1,7 @@
+const goods = require('./data/goods.json')
+const seller = require('./data/seller.json')
+const ratings = require('./data/ratings.json')
+
 module.exports = {
     outputDir: 'dist', // build输出目录
     assetsDir: 'assets', // 静态资源目录(js, css, img, fonts)
@@ -18,6 +22,22 @@ module.exports = {
                     '^/api': ''
                 }
             }
+        },
+        before(app) {
+            // http://127.0.0.1:8989/api/goods
+            app.get('/api/goods', (req, res) => {
+                res.json(goods)
+            })
+
+            // http://127.0.0.1:8989/api/seller
+            app.get('/api/seller', (req, res) => {
+                res.json(seller)
+            })
+            
+            // http://127.0.0.1:8989/api/ratings
+            app.get('/api/ratings', (req, res) => {
+                res.json(ratings)
+            })
         }
     }
 }
